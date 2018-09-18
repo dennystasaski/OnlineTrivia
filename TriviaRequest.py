@@ -1,12 +1,10 @@
 import requests
-import json
 
 BASE_URL = 'https://opentdb.com'
 
 def main():
 	token = get_token()
 	get_questions(token, 3)
-
 
 def get_token():
 	url = BASE_URL + '/api_token.php?command=request'
