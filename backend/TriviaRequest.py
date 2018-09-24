@@ -37,15 +37,15 @@ def reset_token(token):
 
 def get_questions(token, num, category):
 	json = req_questions(token, num, category)
-
-	code = json['response_code']
+	return json
+	'''code = json['response_code']
 	if code is 0:
 		questions = []
 		for i in range(0, len(json['results'])):
 			questions.append(Question(json['results'][i]))
 		return questions
 	elif code is 1:
-		return None
+		return None'''
 
 
 def req_questions(token, num, category):
@@ -54,7 +54,7 @@ def req_questions(token, num, category):
 	if category is not None:
 		url += '&category=' + str(category)
 	response = requests.get(url)
-	return response.json()
+	return response#.json()
 
 
 main()
